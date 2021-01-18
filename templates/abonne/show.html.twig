@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonne{% endblock %}
+
+{% block body %}
+    <h1>Abonne</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ abonne.id }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ abonne.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Rôles</th>
+                <td>
+                {# {% for role in abonne.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            Directeur -
+                        {% elseif role == "ROLE_BIBLIOTHECAIRE" %}
+                            Bibliothécaire -
+                        {% elseif role == "ROLE_USER" %}
+                            Abonné -
+                        {% elseif role == "ROLE_LECTEUR" %}
+                            Lecteur -
+                        {% else %}
+                            Autre
+                        {% endif %}                        
+                    {% endfor %} #}
+                {{ abonne.rolesTexte }}
+                </td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ abonne.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ abonne.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <th>Livre</th>
+            <th>Emprunté le</th>
+            <th>Rendu le</th>
+        </thead>
+        <tbody>
+            {% for emprunt in abonne.emprunts %}
+                <tr>
+                    <td>{{ emprunt.livre.titre ~ "-"~ emprunt.livre.auteur }}</td>
+                    <td>{{ emprunt.dateEmprunt|date("d/m/Y") }}</td>
+                    <td>{{ emprunt.dateRetour|date("d/m/Y") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table>
+
+    <a href="{{ path('abonne_index') }}">back to list</a>
+
+    <a href="{{ path('abonne_edit', {'id': abonne.id}) }}">edit</a>
+
+    {{ include('abonne/_delete_form.html.twig') }}
+
+    </table>
+{% endblock %}

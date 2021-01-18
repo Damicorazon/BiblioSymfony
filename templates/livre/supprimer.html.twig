@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block h1 %}Confirmation de suppression{% endblock %}
+
+{% block body %}
+  <h3>Etes vous sur de vouloir supprimer le livre n°{{ livre.id }}</h3>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Titre : </strong>{{ livre.titre }}</li>
+      <li class="list-group-item"><strong>Auteur : </strong>{{ livre.auteur }}</li>
+    </ul>
+
+    <form method="POST">
+      <button type="submit" class="btn btn-success">Confirmer</button>
+      <a href="{{ path("livre") }}" class="btn btn-danger">Annuler</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="card livre">
+    <h4 class="card-header"> {{ livre.titre}} </h4> 
+
+    <div class="row  couverture">
+        <div class="col-4 d-flex align-items-center">
+            <img class="card-img p-1" src="{{ asset("img/" ~ livre.couverture) }}" alt="pas de couverture">
+        </div>
+
+        <div class="col-8">
+            <div class="card-body">
+                 <p class="card-text">De : {{ livre.auteur }}</p> 
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer">
+  
+        
+            <a href="" class="card-link">
+                <i class="fa fa-book"></i> Voir plus
+            </a>
+    </div>
+</div>

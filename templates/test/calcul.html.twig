@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Calcul{% endblock %}
+
+
+{% block h1 %}
+  Resultat du calcul
+{% endblock %}
+
+{% block body %}
+    {{ a }} * {{ b }} = {{ a * b }} <br>
+    {{ a }} + {{ b }} = {{ a + b }} <br>
+    {{ a }} / {{ b }} = {{ a / b }} <br>
+    {{ a ~ " - " ~ b ~ " = " ~ (a - b) }} {# ~ permet de faire des concaténations en twig! #}
+{% endblock %}

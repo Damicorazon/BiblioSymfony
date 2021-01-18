@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Abonné{% endblock %}
+
+{% block h1 %}Ajouter un abonné{% endblock %}
+
+{% block body %}
+    
+    {{ include('abonne/_form.html.twig') }}
+
+    <a href="{{ path('abonne_index') }}" class="btn btn-primary">Revenir à la liste</a>
+{% endblock %}
